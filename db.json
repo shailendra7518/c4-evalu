@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "shailendra",
+      "password": "hii",
+      "location": "bangalore",
+      "interests": [
+        "technology"
+      ],
+      "image": "ddff",
+      "subscribed": [],
+      "id": 1
+    }
+  ],
+  "meetups": []
+}
