@@ -12,5 +12,16 @@
       "id": 1
     }
   ],
-  "meetups": []
+  "meetups": [
+    {
+      "title": "hellomasai",
+      "date": "03-05-2022",
+      "location": "kolkata",
+      "time": "02:30",
+      "theme": "food",
+      "description": "its very good thing",
+      "image": "https://files.realpython.com/media/random_data_watermark.576078a4008d.jpg",
+      "id": 1
+    }
+  ]
 }

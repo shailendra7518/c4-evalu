@@ -29,24 +29,24 @@ export const AddMeetup = () => {
   
     axios.post('http://localhost:8080/meetups',meetup)
     .then(function (response) {
-     
+     console.log(response)
     })
     .catch(function (error) {
       console.log(error);
     });
   }
 
-
+console.log(meetup)
 
 
   return (
     <div className="addMeetupContainer">
-      <form>
+      <form onSubmit={handlesubmit}>
         <h1>Add Meetup</h1>
         <label>title</label>
-        <input type="text" className="title" onChange={() => { }} required />
+        <input type="text" className="title" onChange={handlechang} required />
         <label>Location</label>
-        <select value={""} className="location" onChange={(event) => { }}>
+        <select value={""} className="location" onChange={handlechang}>
           <option value=""></option>
           <option value="bangalore">Bangalore</option>
           <option value="kolkata">Kolkata</option>
@@ -58,7 +58,7 @@ export const AddMeetup = () => {
         <input
           type="text"
           className="date"
-          onChange={(event) => { }}
+          onChange={handlechang}
           placeholder="format YYYY-MM-DD"
           required
         />
@@ -67,13 +67,13 @@ export const AddMeetup = () => {
         <input
           type="text"
           className="time"
-          onChange={(event) => { }}
+          onChange={handlechang}
           placeholder="format HH:MM"
           required
         />
         <br />
         <label>Theme</label>
-        <select value={""} className="theme" onChange={(event) => { }}>
+        <select value={""} className="theme" onChange={handlechang}>
           <option value="">-----------</option>
           <option value="technology">Technology</option>
           <option value="food">Food</option>
@@ -86,7 +86,7 @@ export const AddMeetup = () => {
         <input
           type="text"
           className="description"
-          onChange={(event) => { }}
+          onChange={handlechang}
           placeholder="Description"
           required
         />
@@ -95,7 +95,7 @@ export const AddMeetup = () => {
         <input
           type="text"
           className="image"
-          onChange={(event) => { }}
+          onChange={handlechang}
           required
         />
         <br />

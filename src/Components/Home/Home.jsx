@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router';
+import { LoginSignUp } from "../LoginSignUp/LoginSignUp";
 export const Home = () => {
+
   const [meetups,setmeetups]=useState([])
-  
+  let usercheck=JSON.parse(localStorage.getItem("userLoginDetails"))
+ 
 
 useEffect(()=>{
 Getmeetup()
@@ -30,17 +34,36 @@ const Getmeetup=()=>{
 
 
 
-
-
-
+const navigator=useNavigate()
+console.log(meetups)
+if(!usercheck){
+ navigator("/LoginSignUp")
+ 
+}
 
   return (
     <div className="homeContainer">
-      {[]
-        .filter((el) => { }) // Filter on the basis of Users interests and location (both true)
+      <h1>meetups</h1>
+      {meetups
+        
         .map((el) => {
           return (
-            <Link to={`add route here`} className="events">
+            <Link key={el.id} to={`/event/${el.id}`} className="events">
+             Title :- <th className="title"> {el.title}</th>
+             <br />
+             Theme:- <th className="theme">{el.theme}</th>
+             <br />
+             description:- <th className="description">{el.description}</th>
+             <br />
+             date :- <th className="date">{el.date}</th>
+             <br />
+             time:- <th className="time">{el.time}</th>
+             <br />
+
+             Location :- <th className="location">{el.date}</th>
+             <br />
+             <img className="image" src={el.image} alt="event" height={"200px"} />
+
               {/* add your children here (divs)
               ex : title, theme, description, date, time, location, image(optional)
               the classNames should be also : title, theme, description, date, time, location, image(optional)
@@ -52,8 +75,8 @@ const Getmeetup=()=>{
       <div className="subscribedData">
         <div>
           <select
-            value={"add your value here"}  // add value here
-            onChange={``}
+           // add value here
+            
           >
             <option value="">------</option>
             <option value="bangalore">Bangalore</option>
